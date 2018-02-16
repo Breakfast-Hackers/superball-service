@@ -35,9 +35,9 @@ public class SuperballSpeechlet implements Speechlet {
 
         String intentName = intent.getName();       
 
-        if ( intentName.equals("TerriblyInterestingIntent") ) {
+        if ("direction".equals(intentName)) {
 
-            String speechText = "Hello, World.  I am a Spring Boot custom skill.";
+            String speechText = "Hello, breakfast hackers! You rock!";
 
             SimpleCard card = new SimpleCard();
             card.setTitle("Hello World");
@@ -50,7 +50,7 @@ public class SuperballSpeechlet implements Speechlet {
             return response;
         }
         else {
-            throw new SpeechletException("I don't understand that intent.");
+            throw new SpeechletException("What the fuck do you want?");
         }
     }
 
