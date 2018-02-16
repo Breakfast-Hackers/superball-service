@@ -23,7 +23,7 @@ public class SuperballServiceApplication {
         SpeechletServlet speechletServlet = new SpeechletServlet();
         speechletServlet.setSpeechlet(superballSpeechlet);
 
-        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(speechletServlet, "/api/movements");
+        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(speechletServlet, "/api/speechlet/movements");
         return servletRegistrationBean;     
     }
 }
