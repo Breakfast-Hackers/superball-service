@@ -23,7 +23,15 @@ public class SuperballSpeechlet implements Speechlet {
 
     @Override
     public SpeechletResponse onLaunch(LaunchRequest request, Session session) throws SpeechletException {
-        return null;
+        SimpleCard card = new SimpleCard();
+        card.setTitle("Hello World");
+        card.setContent("Superball speechlet launched");
+
+        PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+        speech.setText("Superball speechlet launched");
+
+        SpeechletResponse response = SpeechletResponse.newTellResponse(speech, card);
+        return response;
     }
 
     @Override
