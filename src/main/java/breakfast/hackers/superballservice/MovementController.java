@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Controller
-@RequestMapping(path="/api/movements")
+@RequestMapping(path="/api/movementsfickscheisse")
 public class MovementController {
     
     private Queue<MovementDTO> movementQueue = new ArrayDeque<>();
