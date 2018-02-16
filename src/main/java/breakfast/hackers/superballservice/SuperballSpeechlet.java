@@ -35,7 +35,7 @@ public class SuperballSpeechlet implements Speechlet {
 
         String intentName = intent.getName();       
 
-        if ("direction".equals(intentName)) {
+        if ("goDirection".equals(intentName)) {
 
             String speechText = "Hello, breakfast hackers! You rock!";
 
