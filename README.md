@@ -11,5 +11,7 @@
 * <a href="https://superball.herokuapp.com/" target="_blank">Superball Service</a>
 ### Send movement
 URL: https://superball.herokuapp.com/api/movements
+
 Method: POST
+
 Request body: { "direction":"left"}
