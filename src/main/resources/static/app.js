@@ -1,5 +1,5 @@
 const initTopTen = () => {
-    fetch('https://superball.herokuapp.com//api/highscores', {
+    fetch('https://superball.herokuapp.com/api/highscores', {
         method: 'GET',
         headers: { 'Accept': 'application/json' }
     })
@@ -21,8 +21,8 @@ const initWebSockets = () => {
 	stompClient.connect({}, function (frame) {
 	    console.log('Connected: ' + frame);
 	    stompClient.subscribe('/topic/movements', function (message) {
-	    	const movement = JSON.parse(message.body)
-	        $('#movementsContainer').append('<div><span>' + movement.action + '</span></div>');
+	    	const position = JSON.parse(message.body)
+	        $('#movementsContainer').append('<div><span>' + position.position + '</span></div>');
 	    });
 
 	    stompClient.subscribe('/topic/commands', function (message) {

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import breakfast.hackers.superballservice.direction.PositionService;
 import breakfast.hackers.superballservice.highscore.HighscoreService;
 
 @Controller
@@ -31,6 +32,8 @@ public class GameController {
     private GameStateService gameStateService;
     @Autowired
     private HighscoreService highscoreService;
+    @Autowired
+    private PositionService positionService;
     @Autowired
     private SimpMessagingTemplate template;
 
