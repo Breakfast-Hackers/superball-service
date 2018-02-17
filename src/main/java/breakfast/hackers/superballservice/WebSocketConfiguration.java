@@ -22,8 +22,4 @@ public class WebSocketConfiguration extends AbstractWebSocketMessageBrokerConfig
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/superball-websocket").setAllowedOrigins("*").withSockJS();
     }
-
-    public void bla() {
-
-    }
 }

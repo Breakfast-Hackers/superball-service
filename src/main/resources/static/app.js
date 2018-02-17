@@ -11,5 +11,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	    	const command = JSON.parse(message.body)
 	        $('#commandsContainer').append('<div><span>' + command.action + '</span></div>');
 	    });
+	    stompClient.subscribe('/topic/obstacles', function (message) {
+	    	const obstacle = JSON.parse(message.body)
+	        $('#obstaclesContainer').append('<div style="background-color:' + obstacle.color + '"><span>' + obstacle.position + '</span></div>');
+	    });
 	});
 });
