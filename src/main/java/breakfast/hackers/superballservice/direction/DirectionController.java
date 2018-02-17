@@ -1,4 +1,4 @@
-package breakfast.hackers.superballservice;
+package breakfast.hackers.superballservice.direction;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

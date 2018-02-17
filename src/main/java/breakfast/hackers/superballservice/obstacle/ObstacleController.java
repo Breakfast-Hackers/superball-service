@@ -1,4 +1,4 @@
-package breakfast.hackers.superballservice;
+package breakfast.hackers.superballservice.obstacle;
 
 import javax.annotation.PostConstruct;
 
@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
-import breakfast.hackers.superballservice.GameStateService.GameState;
+import breakfast.hackers.superballservice.game.GameStateService;
+import breakfast.hackers.superballservice.game.GameStateService.GameState;
 
 @Controller
 public class ObstacleController {

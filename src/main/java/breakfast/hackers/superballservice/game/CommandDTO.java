@@ -1,4 +1,4 @@
-package breakfast.hackers.superballservice;
+package breakfast.hackers.superballservice.game;
 
 import java.io.Serializable;
 

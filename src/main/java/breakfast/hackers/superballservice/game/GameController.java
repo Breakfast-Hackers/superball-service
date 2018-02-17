@@ -1,4 +1,4 @@
-package breakfast.hackers.superballservice;
+package breakfast.hackers.superballservice.game;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
+
+import breakfast.hackers.superballservice.highscore.HighscoreService;
 
 @Controller
 @RequestMapping(path="/api/game")
@@ -27,6 +29,8 @@ public class GameController {
     @Autowired
     private GameStateService gameStateService;
     @Autowired
+    private HighscoreService highscoreService;
+    @Autowired
     private SimpMessagingTemplate template;
 
     @PostMapping(consumes="application/json")
@@ -39,15 +43,18 @@ public class GameController {
     @DeleteMapping
     @ResponseStatus(value = HttpStatus.OK)
     public void gameOver() {
-        gameStateService.stop();
+        highscoreService.saveScore(gameStateService.getDuration());
+        gameStateService.stopGame();
         // TODO: call Alexa
     }
     
     private VoidFunction determineGameState(String action) {
         switch(action.toLowerCase()) {
-            case "pause" : return gameStateService::pause;
-            case "start" : return gameStateService::start;
-            case "stop"  : return gameStateService::stop;
+            case "pause" : return gameStateService::pauseGame;
+            case "start" : return gameStateService::startGame;
+            case "stop"  :
+                highscoreService.saveScore(gameStateService.getDuration());
+                return gameStateService::stopGame;
             case "weiter": return gameStateService::continueGame;
             default: LOGGER.warn("unknown action: " + action);
         }

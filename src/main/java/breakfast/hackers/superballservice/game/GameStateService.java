@@ -1,4 +1,4 @@
-package breakfast.hackers.superballservice;
+package breakfast.hackers.superballservice.game;
 
 import java.util.Date;
 
@@ -18,13 +18,13 @@ public class GameStateService {
     
     private GameState gameState = GameState.STOPPED;
     
-    public void start() {
+    public void startGame() {
         gameState = GameState.RUNNING;
         duration = 0L;
         start = new Date().getTime();
     }
     
-    public void pause() {
+    public void pauseGame() {
         gameState = GameState.PAUSED;
         duration += (new Date().getTime() - start);
         start = -1;
@@ -35,7 +35,7 @@ public class GameStateService {
         start = new Date().getTime();
     }
     
-    public void stop() {
+    public void stopGame() {
         gameState = GameState.STOPPED;
         duration = 0;
         start = -1;

@@ -22,5 +22,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	    	const duration = JSON.parse(message.body)
 	        $('#durationContainer').html('<div>' + duration.duration + '</div>');
 	    });
+	    
+	    stompClient.subscribe('/topic/highscore', function (message) {
+	    	const highscore = JSON.parse(message.body)
+	    	$('#highscoreContainer').html('');
+	    	highscore.scores.forEach(score => $('#highscoreContainer').append('<div>' + score + '</div>'));
+	    });
 	});
 });
