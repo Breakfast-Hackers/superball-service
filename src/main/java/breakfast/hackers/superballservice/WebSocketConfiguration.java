@@ -11,7 +11,7 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 @EnableWebSocketMessageBroker
 @EnableScheduling
 public class WebSocketConfiguration extends AbstractWebSocketMessageBrokerConfigurer {
-    
+
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
         config.enableSimpleBroker("/topic");
@@ -20,10 +20,10 @@ public class WebSocketConfiguration extends AbstractWebSocketMessageBrokerConfig
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/superball-websocket").withSockJS();
+        registry.addEndpoint("/superball-websocket").setAllowedOrigins("*").withSockJS();
     }
-    
+
     public void bla() {
-        
+
     }
 }
