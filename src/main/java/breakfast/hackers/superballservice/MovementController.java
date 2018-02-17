@@ -1,5 +1,6 @@
 package breakfast.hackers.superballservice;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @RequestMapping(path="/api/movements")
 public class MovementController {
     
+    @Autowired
     private MovementService movementService;
     
     @PostMapping
