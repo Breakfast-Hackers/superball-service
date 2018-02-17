@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Controller
-@RequestMapping
-public class MovementController {
+@RequestMapping(path="/api/direction")
+public class DirectionController {
     
     @Autowired
     private SimpMessagingTemplate template;
     
-    @PostMapping(path="/api/movements", consumes="application/json")
+    @PostMapping(consumes="application/json")
     @ResponseStatus(value = HttpStatus.OK)
-    public void move(@RequestBody MovementDTO movement) {
+    public void move(@RequestBody DirectionDTO movement) {
         template.convertAndSend("/topic/movements", movement);
     }
     
