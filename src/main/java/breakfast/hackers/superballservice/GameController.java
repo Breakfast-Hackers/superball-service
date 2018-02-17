@@ -1,5 +1,7 @@
 package breakfast.hackers.superballservice;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Controller
 @RequestMapping(path="/api/game")
 public class GameController {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(GameController.class);
     
     @FunctionalInterface
     private static interface VoidFunction {
@@ -45,8 +49,9 @@ public class GameController {
             case "start" : return gameStateService::start;
             case "stop"  : return gameStateService::stop;
             case "weiter": return gameStateService::continueGame;
-            default: throw new IllegalStateException("unknown action: " + action);
+            default: LOGGER.warn("unknown action: " + action);
         }
+        return () -> {};
     }
     
     @Scheduled(fixedRate=1000)
