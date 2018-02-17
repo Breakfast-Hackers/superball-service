@@ -37,7 +37,7 @@ public class GameStateService {
     
     public void stop() {
         gameState = GameState.STOPPED;
-        duration += (new Date().getTime() - start);
+        duration = 0;
         start = -1;
     }
     
