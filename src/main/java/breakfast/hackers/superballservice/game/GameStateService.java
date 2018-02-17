@@ -37,7 +37,6 @@ public class GameStateService {
     
     public void stopGame() {
         gameState = GameState.STOPPED;
-        duration = 0;
         start = -1;
     }
     
