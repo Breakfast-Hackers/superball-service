@@ -11,7 +11,7 @@ public class IndexController {
     @Autowired
     private MovementService movementService;
 
-    @GetMapping
+    @GetMapping(path="/")
     public String index(Model model) {
         model.addAttribute("movements", movementService.getMovements());
         return "index";
