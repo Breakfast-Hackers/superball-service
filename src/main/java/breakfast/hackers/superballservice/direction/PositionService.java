@@ -19,4 +19,8 @@ public class PositionService {
     public Position getPosition() {
         return position;
     }
+
+    public void reset() {
+        position = Position.CENTER;
+    }
 }

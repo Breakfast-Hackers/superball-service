@@ -56,7 +56,9 @@ public class GameController {
     private VoidFunction determineGameState(String action) {
         switch(action.toLowerCase()) {
             case "pause" : return gameStateService::pauseGame;
-            case "start" : return gameStateService::startGame;
+            case "start" :
+                positionService.reset();
+                return gameStateService::startGame;
             case "stop"  :
                 highscoreService.saveScore(gameStateService.getDuration());
                 return gameStateService::stopGame;
