@@ -5,7 +5,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	    console.log('Connected: ' + frame);
 	    stompClient.subscribe('/topic/movements', function (message) {
 	    	const movement = JSON.parse(message.body)
-	        $('#websocketContainer').append('<div><span>' + movement.action + '</span></div>');
+	        $('#movementsContainer').append('<div><span>' + movement.action + '</span></div>');
+	    });
+	    stompClient.subscribe('/topic/commands', function (message) {
+	    	const command = JSON.parse(message.body)
+	        $('#commandsContainer').append('<div><span>' + command.action + '</span></div>');
 	    });
 	});
 });
