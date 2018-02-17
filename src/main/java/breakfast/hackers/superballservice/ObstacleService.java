@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class ObstacleService {
     
     private final String[] colors = {"#FF0000", "#00FF00", "#0000FF", "#FF00FF", "#00FFFF", "#FFFF00"};
-
+    
     public ObstacleDTO generateObstacle() {
         return new ObstacleDTO(determineColor(), determinePosition());
     }
