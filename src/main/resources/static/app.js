@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	    console.log('Connected: ' + frame);
 	    stompClient.subscribe('/topic/movements', function (message) {
 	    	const movement = JSON.parse(message.body)
-	        $('#websocketContainer').append('<div><span>' + movement.direction + '</span></div>');
+	        $('#websocketContainer').append('<div><span>' + movement.action + '</span></div>');
 	    });
 	});
 });
