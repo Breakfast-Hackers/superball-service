@@ -21,10 +21,10 @@ public class ObstacleController {
     
     @PostConstruct
     public void init() {
-        new Thread(this::bla).start();
+        new Thread(this::sendObstacle).start();
     }
 
-    private void bla() {
+    private void sendObstacle() {
         while(true) {
             if(gameStateService.getGameState() == GameState.RUNNING) {
                 template.convertAndSend("/topic/obstacles", obstacleService.generateObstacle());
@@ -40,7 +40,7 @@ public class ObstacleController {
     
     private long determineSleepTime() {
         final long random = (long) ((Math.random() * 1000) - 2000);
-        final long millis = Math.max(2500, (7_000 - ((gameStateService.getDuration() / 1000) * 500))) + random;
+        final long millis = Math.max(3500, (7_000 - ((gameStateService.getDuration() / 1500) * 500))) + random;
         return millis;
     }
 }
